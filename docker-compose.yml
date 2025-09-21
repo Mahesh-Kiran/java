@@ -28,3 +28,36 @@ services:
 
 volumes:
   db_data:
+
+
+
+
+version: "3.8"
+services:
+  app:
+    image: yourdockerhubusername/foodsystem:latest   # or build: .
+    # if you have a Dockerfile that builds the app, uncomment:
+    # build: .
+    ports:
+      - "7078:8080"   # map host 7078 -> container 8080 (sheet shows 7078)
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/fooddb
+      - SPRING_DATASOURCE_USERNAME=fooduser
+      - SPRING_DATASOURCE_PASSWORD=foodpass
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: fooddb
+      POSTGRES_USER: fooduser
+      POSTGRES_PASSWORD: foodpass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
