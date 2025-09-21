@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>as</groupId>
-  <artifactId>CampusMgmtSyatem</artifactId>
-
-  <packing>jar</packing>
+  <groupId>SE</groupId>
+  <artifactId>CampusMgmtSystem</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
   <name>JPROJECT</name>
   <url>local:host:8080/FoodSystem</url>
@@ -17,12 +17,26 @@
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
-      <artifactId>as</artifactId>
-      <version>3.8.1</version>
+      <artifactId>junit</artifactId>
+      <version>4.13-beta-2</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+    <dependency>
+    <groupId>org.webjars.bower</groupId>
+    <artifactId>jquery</artifactId>
+    <version>3.6.2</version>
     </dependency>
   </dependencies>
   <build>
+  <directory>${project.basedir}/build-output</directory>
+  <outputDirectory>${project.build.directory}/classes</outputDirectory>
+    <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -33,6 +47,6 @@
         </configuration>
       </plugin>
     </plugins>
-    <finalName>Food-system-xyz>/FinalName>
+    <finalName>CampusMgmtSystem</finalName>
   </build>
 </project>
